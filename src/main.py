@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 import sqlite3
 
-
 def get_vocabularies():
-    conn = sqlite3.connect('dictionary.db')
+    dbfile = 'db/dictionary.db'
+    conn = sqlite3.connect(dbfile)
     cursor = conn.cursor()
 
     cursor.execute('SELECT k, v FROM my_vacabulary order by cdt desc')
